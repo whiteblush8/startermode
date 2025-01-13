@@ -34,11 +34,11 @@ class Duplex
             options()
 
         when "exit"
-          puts "Talk to you later."
+          puts "Talk to you later!"
           break
 
         else 
-          puts "Did you type something wrongg?"
+          puts "Did you type something wrong?"
 
         end
 
@@ -52,13 +52,13 @@ class Duplex
     def apartment_list(type, location, price)
       apartment = Apartment.new(type, location, price)
       @apartments.push(apartment)
-      puts "#{apartments.to_s} has been listed."
+      puts "#{apartment.to_s} has been listed."
     end
 
     def apartment_search(type, location, price)
       apartment = @apartments.find { |apartment| apartment.to_s }
 
-    @apartments.delete(apartment)
+     @apartments.delete(apartment)
 
     puts "#{apartment.to_s} has been searched."
 
@@ -77,7 +77,7 @@ class Duplex
 
     def options()
       if @apartments.empty?
-        "No apartments fit your criteria at this time."
+        "No apartments are available at this time."
 
       else 
         @apartments.each do |apartment|
