@@ -1,13 +1,15 @@
-
-
 class Apartment
-  attr_accessor :type, :location, :price
-
-  def initialize(type = "", location = "", price = "")
+  attr_accessor :type, :location, :price  # Make sure these are accessible for assignment
+  
+  def initialize(type = nil, location = nil, price = nil)
     @type = type
     @location = location
     @price = price
-    @apartments = []  # List of apartments will be in each instance
+    @apartments = []
+  end
+
+  def to_s
+    "Apartment type: #{@type}, Location: #{@location}, Price: #{@price}"
   end
 
   def open
@@ -42,14 +44,12 @@ class Apartment
 
   private
 
-  # Add an apartment to the list
   def apartment_list(type, location, price)
     apartment = Apartment.new(type, location, price)
     @apartments.push(apartment)
-    puts "#{apartment.to_s} has been listed."
+    puts "#{apartment.to_s} has been listed."  # Now it will work because to_s is public
   end
 
-  # Search for an apartment based on criteria and remove it if found
   def apartment_search(type, location, price)
     apartment = @apartments.find do |apartment|
       apartment.type == type && apartment.location == location && apartment.price == price
@@ -63,7 +63,6 @@ class Apartment
     end
   end
 
-  # Log details of the apartment (type, location, price)
   def log
     puts "Enter type"
     @type = gets.chomp
@@ -73,7 +72,6 @@ class Apartment
     @price = gets.chomp
   end
 
-  # List all available apartments
   def options
     if @apartments.empty?
       puts "No apartments are available at this time."
@@ -83,13 +81,4 @@ class Apartment
       end
     end
   end
-
-  # Optional: Override to_s method to output apartment details in a readable way
-  def to_s
-    "Apartment type: #{@type}, Location: #{@location}, Price: #{@price}"
-  end
 end
-
-# To run the program, create an instance of the Apartment class and call open
-apartment = Apartment.new
-apartment.open
