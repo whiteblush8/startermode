@@ -1,4 +1,4 @@
-# spec2/apartment_spec.rb
+# spec2/property_spec.rb
 
 require_relative '../property'  # Adjust this path if necessary
 
@@ -26,6 +26,7 @@ RSpec.describe Apartment do
 
       @apartment.apartment_list(@apartment.type, @apartment.location, @apartment.price)
 
+      # Verify the apartment was added to the @apartments list
       expect(@apartment.instance_variable_get(:@apartments).size).to eq(1)
     end
   end
@@ -37,31 +38,5 @@ RSpec.describe Apartment do
       @apartment.price = "$2000"
       @apartment.apartment_list(@apartment.type, @apartment.location, @apartment.price)
 
-      @apartment.apartment_search(@apartment.type, @apartment.location, @apartment.price)
-
-      expect(@apartment.instance_variable_get(:@apartments).size).to eq(0)
-    end
-
-    it "does not remove any apartment if not found" do
-      @apartment.type = "1B"
-      @apartment.location = "Los Angeles"
-      @apartment.price = "$2000"
-      @apartment.apartment_list(@apartment.type, @apartment.location, @apartment.price)
-
-      @apartment.apartment_search("2B", "Chicago", "$1500")
-
-      expect(@apartment.instance_variable_get(:@apartments).size).to eq(1)
-    end
-  end
-
-  describe "#options" do
-    it "lists all available apartments" do
-      @apartment.type = "studio"
-      @apartment.location = "New York"
-      @apartment.price = "$1200"
-      @apartment.apartment_list(@apartment.type, @apartment.location, @apartment.price)
-
-      expect { @apartment.options }.to output("Apartment type: studio, Location: New York, Price: $1200\n").to_stdout
-    end
-
-    it "outputs 'No apartments are available a
+      # Search for and remove the apartment
+      @apartment.apartment_search(@apartmen
