@@ -1,6 +1,6 @@
 require_relative "apartment"
 
-class Duplex
+class Apartment
   def initialize  
     @apartments = []
   end
