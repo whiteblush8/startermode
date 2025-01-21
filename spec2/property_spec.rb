@@ -66,3 +66,10 @@ RSpec.describe Apartment do
 
       # Verify the correct output when listing apartments
       expect { @apartment.options }.to output("Apartment type: studio, Location: New York, Price: $1200\
+
+
+      RSpec.describe "Debugging" do
+  it "runs a simple test" do
+    expect(1 + 1).to eq(2)
+  end
+end
