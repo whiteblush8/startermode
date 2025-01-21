@@ -1,8 +1,15 @@
-
-
 class Apartment
-  def initialize  
+  attr_accessor :type, :location, :price
+
+  def initialize(type = nil, location = nil, price = nil)
+    @type = type
+    @location = location
+    @price = price
     @apartments = []
+  end
+
+  def to_s
+    "Apartment type: #{@type}, Location: #{@location}, Price: #{@price}"
   end
 
   def open
@@ -75,3 +82,7 @@ class Apartment
     end
   end
 end
+
+# To run the program, you would call the `open` method on an instance of the Apartment class.
+apartment = Apartment.new
+apartment.open
