@@ -1,9 +1,10 @@
 # spec2/apartment_spec.rb
 
-require_relative '../property'  # Adjust path if needed
+require_relative '../property'  # Adjust this path if necessary
 
 RSpec.describe Apartment do
   before(:each) do
+    # Set up the instance before each test
     @apartment = Apartment.new
   end
 
@@ -63,8 +64,4 @@ RSpec.describe Apartment do
       expect { @apartment.options }.to output("Apartment type: studio, Location: New York, Price: $1200\n").to_stdout
     end
 
-    it "outputs 'No apartments are available at this time.' if no apartments are listed" do
-      expect { @apartment.options }.to output("No apartments are available at this time.\n").to_stdout
-    end
-  end
-end
+    it "outputs 'No apartments are available a
