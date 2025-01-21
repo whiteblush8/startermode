@@ -1,7 +1,8 @@
 # spec2/property_spec.rb
 
-require_relative '../property'  # Ensure this path is correct
 
+require_relative 'spec_helper'  # Ensure this path points to your spec_helper.rb file
+require_relative '../property'  # Path to your main class
 RSpec.describe Apartment do
   before(:each) do
     # Set up the instance before each test
