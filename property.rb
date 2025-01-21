@@ -1,16 +1,8 @@
-class Apartment
-  attr_accessor :type, :location, :price  # Making these variables accessible for assignment
-  
-  def initialize(type = nil, location = nil, price = nil)
-    @type = type
-    @location = location
-    @price = price
-    @apartments = []
-  end
 
-  # Public method to return a string representation of the apartment
-  def to_s
-    "Apartment type: #{@type}, Location: #{@location}, Price: #{@price}"
+
+class Apartment
+  def initialize  
+    @apartments = []
   end
 
   def open
@@ -48,7 +40,7 @@ class Apartment
   def apartment_list(type, location, price)
     apartment = Apartment.new(type, location, price)
     @apartments.push(apartment)
-    puts "#{apartment.to_s} has been listed."  # This should now work, since to_s is public
+    puts "#{apartment.to_s} has been listed."
   end
 
   def apartment_search(type, location, price)
