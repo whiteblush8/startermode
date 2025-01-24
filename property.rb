@@ -100,5 +100,3 @@ class Apartment
 end
 
 # To run the program:
-apartment = Apartment.new
-apartment.open
