@@ -1,13 +1,11 @@
-# test/test_property.rb
 require 'minitest/autorun'
 require './property'
 
-class TestProperty < Minitest::Test
-  def test_addition
-    property = Property.new
-    property.add("Studio", "Chicago", 1200)  # Pass strings and an integer
+class TestApartment < Minitest::Test
+  def test_apartment_to_s
+    apartment = Apartment.new("Studio", "Chicago", 1200)  # Pass strings and an integer
 
-    # Check if the property details are correct
-    assert_equal "Studio, Chicago, 1200", property.details, "Search failed"
+    # Check if the apartment details are correct by calling to_s
+    assert_equal "Apartment type: Studio, Location: Chicago, Price: 1200", apartment.to_s, "Apartment details mismatch"
   end
 end
