@@ -9,3 +9,4 @@ class TestApartment < Minitest::Test
     assert_equal "Apartment type: Studio, Location: Chicago, Price: 1200", apartment.to_s, "Apartment details mismatch"
   end
 end
+
